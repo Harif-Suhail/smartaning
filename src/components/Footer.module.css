@@ -1,0 +1,63 @@
+.footer {
+  background: linear-gradient(160deg, #2c0d34 0%, #1a0822 55%, #12061a 100%);
+  padding-top: 6rem;
+  margin-top: 4rem;
+  color: #f3eaf5;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.footerBrand .logo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footerLogoImage {
+  filter: brightness(0) invert(1);
+}
+
+.tagline {
+  color: rgba(243, 234, 245, 0.78);
+  max-width: 300px;
+}
+
+.linkGroup h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.linkGroup a, .linkGroup p {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: rgba(243, 234, 245, 0.78);
+  font-size: 0.95rem;
+}
+
+.linkGroup a:hover {
+  color: #dca5de;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 2rem 0 calc(2rem + env(safe-area-inset-bottom));
+  text-align: center;
+  color: rgba(243, 234, 245, 0.65);
+  font-size: 0.875rem;
+}
+
+.footerBottom p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1023px) {
+  .footerContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

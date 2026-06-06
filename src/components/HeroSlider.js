@@ -40,7 +40,7 @@ export default function HeroSlider() {
       {slides.map((slide, index) => (
         <div
           key={slide.image}
-          className={`hero-overlay pointer-events-none absolute inset-0 z-1 transition-opacity duration-700 ${index === active ? 'opacity-100' : 'opacity-0'}`}
+          className={`pointer-events-none absolute inset-0 z-1 transition-opacity duration-700 ${index === active ? 'opacity-100' : 'opacity-0'}`}
           aria-hidden={index !== active}
         >
           <Image
@@ -64,34 +64,38 @@ export default function HeroSlider() {
                 className={`col-start-1 row-start-1 flex flex-col items-center ${isActive ? 'relative z-10' : 'invisible pointer-events-none'}`}
                 aria-hidden={!isActive}
               >
-                <p className="font-body text-base md:text-[1.125rem] tracking-[0.12em] md:tracking-[0.15em] uppercase mb-4 md:mb-6 text-[#e0d0df] fade-in delay-1">
-                  {slide.eyebrow}
-                </p>
+                <div className="hero-copy-panel w-full max-w-[880px] rounded-[28px] px-5 py-8 sm:px-8 md:px-12 md:py-12">
+                  <p className="hero-copy-shadow mb-4 font-body text-base uppercase tracking-[0.12em] text-white/88 fade-in delay-1 md:mb-6 md:text-[1.125rem] md:tracking-[0.15em]">
+                    {slide.eyebrow}
+                  </p>
 
-                {index === 0 ? (
-                  <h1 className="text-[clamp(2.75rem,6.8vw,5rem)] leading-[1.1] md:leading-[1.05] mb-4 md:mb-6 text-white fade-in delay-2">
-                    {slide.title}
-                  </h1>
-                ) : (
-                  <h2 className="text-[clamp(2.2rem,6vw,4.2rem)] leading-[1.1] md:leading-[1.05] mb-4 md:mb-6 text-white fade-in delay-2">
-                    {slide.title}
-                  </h2>
-                )}
+                  {index === 0 ? (
+                    <h1 className="hero-copy-shadow mb-4 text-[clamp(2.75rem,6.8vw,2.5rem)] leading-[1.1] text-white fade-in delay-2 md:mb-6 md:leading-[1.05]">
+                      {slide.title}
+                    </h1>
+                  ) : (
+                    <h2 className="hero-copy-shadow mb-4 text-[clamp(2.2rem,6vw,2.5rem)] leading-[1.1] text-white fade-in delay-2 md:mb-6 md:leading-[1.05]">
+                      {slide.title}
+                    </h2>
+                  )}
 
-                <p className="mb-6 max-w-[720px] text-white/85 fade-in delay-2 md:mb-8">{slide.description}</p>
+                  <p className="hero-copy-shadow mx-auto mb-6 max-w-[720px] text-white/90 fade-in delay-2 md:mb-8">
+                    {slide.description}
+                  </p>
 
-                <div className="fade-in delay-3 mt-2 flex w-full flex-col justify-center gap-4 sm:w-auto sm:flex-row sm:gap-6">
-                  <Link href={slide.primaryCta.href} className="btn text-center" tabIndex={isActive ? 0 : -1}>
-                    {slide.primaryCta.label}
-                  </Link>
-                  <Link
-                    href={slide.secondaryCta.href}
-                    className="btn text-center"
-                    style={{ backgroundColor: '#ffffff', color: '#280028' }}
-                    tabIndex={isActive ? 0 : -1}
-                  >
-                    {slide.secondaryCta.label}
-                  </Link>
+                  <div className="fade-in delay-3 mt-2 flex w-full flex-col justify-center gap-4 sm:w-auto sm:flex-row sm:gap-6">
+                    <Link href={slide.primaryCta.href} className="btn text-center" tabIndex={isActive ? 0 : -1}>
+                      {slide.primaryCta.label}
+                    </Link>
+                    <Link
+                      href={slide.secondaryCta.href}
+                      className="btn text-center"
+                      style={{ backgroundColor: '#ffffff', color: '#280028' }}
+                      tabIndex={isActive ? 0 : -1}
+                    >
+                      {slide.secondaryCta.label}
+                    </Link>
+                  </div>
                 </div>
               </div>
             );
